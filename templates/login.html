@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background: rgba(30, 106, 209, 0.23);
+        padding: 50px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      h1 {
+        color: #4a90e2;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+        color: #333333;
+        font-size: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: calc(100% - 2px);
+        padding: 10px;
+        margin-top: 15px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input[type="submit"] {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4a90e2;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background-color 0.3s;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #357abd;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" action="/login">
+      <h1>Login</h1>
+      {% if error %}
+      <p style="color: red">{{ error }}</p>
+      {% endif %}
+      <p>Email: <input type="text" name="email" /></p>
+      <p>Password: <input type="password" name="password" /></p>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <p><input type="submit" value="Login" /></p>
+    </form>
+  </body>
+</html>
