@@ -91,6 +91,7 @@ These vulnerabilities are addressed and mitigated in the application code using 
 
 - `app.py`: Main Flask application code.
 - `bin/createdb.py`: Script to create and populate the SQLite database.
+- `bin/makeaccounts.py`: Script to create and populate the SQLite database with account data.
 - `templates/`: HTML templates for rendering pages.
 - `user_service.py`: Service module for user-related operations.
 - `account_service.py`: Service module for account-related operations.
